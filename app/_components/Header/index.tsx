@@ -33,6 +33,8 @@ export default function Header() {
     } else if(savedTheme==='light') {
       document.documentElement.setAttribute('data-theme', 'light')
       setIsDarkMode(false)
+    } else {
+      localStorage.setItem('data-theme', 'dark')
     }
   }, [])
 
