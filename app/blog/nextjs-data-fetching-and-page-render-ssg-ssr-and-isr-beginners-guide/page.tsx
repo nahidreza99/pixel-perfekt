@@ -185,7 +185,7 @@ const Page: React.FC = () => {
             user request.
           </p>
           <p>
-            In the <span className="font-bold">Page Router</span>to server side render a page, you
+            In the <span className="font-bold">Page Router</span>, to server side render a page, you
             have to use the <Code code="getServerSideProps" /> to pass the dynamic data to the page.
           </p>
           <CodeSnippet fileName="page/user/page.jsx" code={ssrPageRouterCode} />
