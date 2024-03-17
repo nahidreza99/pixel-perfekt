@@ -23,14 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <InitTheme />
+        {/* <InitTheme /> */}
       </head>
       <body className={inter.className}>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 
 interface Props {
   children: React.ReactNode
-  id?: string | null
+  id?: string | undefined
   className?: string | null
 }
 

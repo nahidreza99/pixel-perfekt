@@ -5,11 +5,36 @@ import Link from 'next/link'
 import { useTheme } from '../../_providers/Theme'
 
 export default function Header() {
-  const { theme, setTheme } = useTheme()
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
+  // console.log(isDarkMode)
 
+  // Function to toggle theme mode
   const toggleTheme = () => {
-    theme === 'dark' ? setTheme('light') : setTheme('dark')
+    if (isDarkMode) {
+      localStorage.setItem('data-theme', 'light')
+      document.documentElement.setAttribute('data-theme', 'light')
+      setIsDarkMode(false)
+    } else {
+      localStorage.setItem('data-theme', 'dark')
+      document.documentElement.setAttribute('data-theme', 'dark')
+      setIsDarkMode(true)
+    }
   }
+
+  // Set initial theme mode based on local storage preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('data-theme')
+    // console.log(savedTheme)
+    // toggleTheme()
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark')
+      setIsDarkMode(true)
+      // setIsDarkMode()
+    } else if(savedTheme==='light') {
+      document.documentElement.setAttribute('data-theme', 'light')
+      setIsDarkMode(false)
+    }
+  }, [])
 
   return (
     <header className="">
@@ -41,7 +66,7 @@ export default function Header() {
             id="theme"
             className="hidden"
             type="checkbox"
-            checked={theme === 'dark' || theme === undefined}
+            checked={isDarkMode}
             readOnly
           />
         </label>
